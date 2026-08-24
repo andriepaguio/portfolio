@@ -1349,3 +1349,44 @@ font-weight:bold;
 `
 
 );
+
+/*=========================================
+  BACK TO TOP BUTTON
+=========================================*/
+
+const backToTopBtn = document.getElementById("backToTop");
+
+function toggleBackToTop() {
+
+    if (!backToTopBtn) return;
+
+    if (window.scrollY > 500) {
+
+        backToTopBtn.classList.add("show");
+
+    } else {
+
+        backToTopBtn.classList.remove("show");
+
+    }
+
+}
+
+if (backToTopBtn) {
+
+    window.addEventListener("scroll", toggleBackToTop);
+
+    toggleBackToTop();
+
+    backToTopBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+            behavior: "smooth"
+
+        });
+
+    });
+
+}

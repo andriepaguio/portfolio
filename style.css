@@ -917,6 +917,10 @@ body::after{
 
 .project-card{
 
+    display: flex;
+
+    flex-direction: column;
+
     position:relative;
 
     background:#111522;
@@ -942,20 +946,25 @@ body::after{
 }
 
 .project-image{
-
+    height:280px;             
+    display:flex;
+    align-items:center;
+    justify-content:center;
     background:
     radial-gradient(circle,
     rgba(66,116,217,.15),
     transparent 70%);
-
     padding:25px 25px 0;
-
+    overflow:hidden;
 }
 
 .project-image img{
 
     width:100%;
-
+    display: block;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
     transition:.5s;
 
 }
@@ -968,8 +977,11 @@ body::after{
 
 .project-info{
 
-    padding:28px;
-
+    padding: 28px;
+    display:flex;
+    flex-direction:column;
+    flex:1;     
+    justify-content: space-between;           
 }
 
 .project-info h3{
@@ -998,7 +1010,7 @@ body::after{
 
     line-height:1.8;
 
-    margin-bottom:28px;
+    margin-bottom: 28px;
 
 }
 
@@ -1360,6 +1372,16 @@ body::after{
         bottom:auto;
 
         margin-top:25px;
+
+    }
+
+        .back-to-top {
+
+        right: 18px;
+        bottom: 18px;
+
+        width: 42px;
+        height: 42px;
 
     }
 
@@ -2664,5 +2686,89 @@ body.loaded{
 .footer i{
 
     color:var(--primary);
+
+}
+
+.back-to-top {
+    pointer-events: none;
+}
+
+.back-to-top.show {
+    pointer-events: auto;
+}
+
+/*=========================================
+  BACK TO TOP
+=========================================*/
+
+.back-to-top {
+
+    position: fixed;
+
+    right: 28px;
+    bottom: 28px;
+
+    z-index: 999;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    background: rgba(17, 21, 34, .92);
+
+    border: 1px solid rgba(66, 116, 217, .28);
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+
+    transition:
+        opacity var(--transition),
+        visibility var(--transition),
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+
+    pointer-events: none;
+
+}
+
+.back-to-top i {
+
+    font-size: 20px;
+
+}
+
+.back-to-top:hover {
+
+    background: rgba(66, 116, 217, .20);
+
+    border-color: rgba(66, 116, 217, .50);
+
+    transform: translateY(-4px);
+
+}
+
+.back-to-top.show {
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
 
 }
